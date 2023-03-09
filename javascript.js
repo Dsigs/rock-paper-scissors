@@ -1,24 +1,32 @@
-let playerSelection = 'Paper';
-let computerSelection = getComputerChoice();
-let gameScore;
+let userChoice = getPrompt()
+const computerChoice = getComputerChoice()
+let gameScore
+
+function getPrompt() {
+  let userChoice = prompt('Choose your weapon!');
+  return userChoice
+}
 
 function getComputerChoice() {
   const randomNumber = Math.floor(Math.random() * 3);
-  let computerSelection;
+  let computerChoice;
 
   switch (randomNumber) {
     case 0:
-      computerSelection = 'Rock';
+      computerChoice = 'Rock';
       break;
     case 1:
-      computerSelection = 'Paper';
+      computerChoice = 'Paper';
       break;
     case 2:
-      computerSelection = 'Scissors';
+      computerChoice = 'Scissors';
       break;
   }
-  
-  return computerSelection
+  return computerChoice
 }
 
-console.log(computerSelection);
+console.log(computerChoice);
+
+
+
+
