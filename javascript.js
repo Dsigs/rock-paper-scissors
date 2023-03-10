@@ -1,8 +1,6 @@
-let userChoice = getPrompt()
 const computerChoice = getComputerChoice()
 let userScore = 0
 let computerScore = 0
-
 
 function getPrompt() {
   let userChoice = prompt('Choose your weapon for Rock, Papers, Scissors:').toLowerCase();
@@ -37,7 +35,7 @@ function getComputerChoice() {
   return computerChoice
 }
 
-function playRound() {
+function playRound(userChoice, computerChoice) {
   let result
 
   switch(userChoice) {
@@ -91,9 +89,27 @@ function playRound() {
   console.log(computerChoice);
   console.log(result)
   console.log(`User score: ${userScore}`);
-  console.log(`Computer score: ${computerScore}`);
+  console.log(`Computer score: ${computerScore}`); 
+  console.log('________________________________________________________________________________________________________')
 
 return {userScore, computerScore}
 }
 
-playRound();
+function playGame() {
+
+  for (i = 0;i < 5; ++i) {
+    const userChoice = getPrompt();
+    const computerChoice = getComputerChoice();
+    playRound(userChoice, computerChoice);
+    }
+
+    if(userScore > computerScore) {
+      alert(`You win!` + `\nUser Score: ` + userScore + `\nComputer Score: ` + computerScore );
+    } else if (userScore < computerScore) {
+      alert(`You lose!` + `\nUser Score: ` + userScore + `\nComputer Score: ` + computerScore );
+    } else if (userScore === computerScore) {
+      alert(`You draw!` + `\nUser Score: ` + userScore + `\nComputer Score: ` + computerScore );
+    }
+  }
+
+playGame();
